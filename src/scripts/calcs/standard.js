@@ -12,22 +12,61 @@ function Standard() {
 
         let x =document.getElementsByClassName("doMath")
 
+        // from 0 to 9 function
+        useEffect( () => {
 
-        document.onkeypress = function (e) {
-            e = e || window.event;
-            let grabInput = document.querySelector('.math');
+            for(let i =0; i <= 9; i++) {
+                let grabDiv = document.querySelector(".n"+i)
+               
+    
+                grabDiv.addEventListener("click", (event) => {
+                    
+                    let grabInput = document.querySelector(".math")
+                    grabInput.value = grabInput.value + event.target.innerHTML
 
-            grabInput.value = grabInput.value + e.key
-            console.log(e.key)
 
-            
-            
-            // use e.keyCode
-        };
-      
+                } )
+            }
+    
+
+        }, [])
+
+        
+
+        
+        function Clear(e) {
+
+            let selectedOperation = e.target.className
+
+            console.log(selectedOperation)
+
+            let grabInput = document.querySelector(".math")
+            let some = grabInput.value;
+
+            if(selectedOperation === "del") {
+                some = some.substring(0, some.length-1)
+                grabInput.value = some
+            }
+            else if (selectedOperation === "clear") {
+                some = some.substring(0, some.length- some.length)
+                grabInput.value = some
+                setHistory(prevState => ({
+                    ...prevState,
+                    first: '',
+                    second: '',
+                    third: '',
+                    bool: true,
+                    isResult: false,
+                    result: ''
+                }))
+
+            }
+
+        } 
+          
 
         function MathSym(e) {
-            console.log(e.target.className)
+           
             let getValue = document.querySelector(".math").value
             let getHistory = document.querySelector(".history").value
           
@@ -52,7 +91,7 @@ function Standard() {
                 break
 
                 case "equal":
-                    selectedOperation = 'end'
+                    selectedOperation = '='
                 break;
             }
 
@@ -63,7 +102,7 @@ function Standard() {
             getValue = Number(getValue)
 
             
-
+            // clicked if hisotry.first is empty
             if(history.bool) {
 
                 if(selectedOperation === "procent") {
@@ -91,6 +130,7 @@ function Standard() {
                
             }
 
+            // clicked everything else
             else if (!history.bool) {
 
                 if(selectedOperation === "procent") {
@@ -185,10 +225,10 @@ function Standard() {
         <div className="mathe">Obliczenia
             <h3 className="history">{history.first } {history.second} {history.third} {history.result ? "=" : ''} <b>{history.result}</b> </h3>
             
-            <input type="number"  className="math" />
+            <input type="number"  className="math" autoFocus />
                 <div className="procent" onClick={MathSym}>%</div>
-                <div className="clear" onClick={MathSym}>Clear </div>
-                <div className="del" onClick={MathSym}>Delete1 </div>
+                <div className="clear" onClick={Clear}>Clear </div>
+                <div className="del" onClick={Clear}>Delete1 </div>
                 <div className="divide" onClick={MathSym}>\ </div>
                 
 
