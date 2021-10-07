@@ -1,38 +1,177 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    padding:0;
+    background-color: rgb(248, 233, 213);
+}
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Ravi+Prakash&display=swap');
+
+.pic {
+    width:200px;
+    height:200px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.pic p {
+    color:rgb(233, 224, 224);
+    text-shadow: 3px 3px 3px black;
+    font-size:40px;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    font-weight: 800;
+}
+.divs {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+.imgJoke {
+    width:70%;
+    min-width:400px;
+    height:300px;
+    background-color: #333;
+    color:rgb(235, 228, 228);
+    text-shadow:1px 1px 1px black;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+}
+.imgJoke .text {
+    margin-top:60px;
+    font-size:25px;
+    text-align:center;
+    padding:20px 50px 0 50px;
+}
+.imgJoke button {
+    font-size:25px;
+    margin-top:15px;
+    cursor: pointer;
+}
+.box {
+    background-color: rgb(255, 255, 255);
+    min-width:500px;
+    width:80%;
+    height:auto;
+    font-family: 'Ravi Prakash', cursive;
+    font-size:30px;
+    color:rgb(70, 64, 64);
+    font-weight:600;
+    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    padding-top:50px;
+    display: block;
+    margin: 40px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.buttons {
+    margin:10px;
+    display: inline-flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.setButton {
+    cursor:pointer;
+    min-width: 50px;
+    max-width:85px;
+    min-height:30px;
+    font-size:25px;
+    width:30%;
+    opacity:0.8;
+    font-family: 'Ravi Prakash', cursive;
+}
+.setButton:hover {
+    opacity: 1;
+}
+.box ul {
+    list-style-type: none;
+}
+.titles {
+    display: inline-flex;
+   
+}
+.titles li {
+    list-style-type: none;
+    margin: 0 10px;
+}
+.time span {
+    margin-left:-6px;
+    font-size:33px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+/* Calc styles */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.calc {
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    width:80%;
+    margin-left: auto;
+    margin-right:auto;
+}
+.calc select {
+    grid-column-start: 2;
+    grid-column-end:4;
+    
+}
+.mathe {
+    grid-column-start: 2;
+    grid-column-end:4;
+    margin-left: auto;
+    margin-right:auto;
+    display:grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    margin-top:20px;
+}
+.mathe div {
+    min-width:50px;
+    min-height:70px;
+    border:1px solid black;
+    background-color: rgb(238, 229, 229);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    opacity:0.8;
+}
+.mathe div:hover {
+    opacity:1;
+    background-color:white;
+}
+.math {
+    height:50px;
+    font-size: 20px;
+    grid-column-start: 1;
+    grid-column-end:5;
+}
+.procent {
+    grid-column-start: 1;
+    grid-column-end:2;
+}
+.clear {
+    grid-column-start:2;
+    grid-column-end:3;
+}
+.history {
+    grid-column-start:2;
+    grid-column-end:5;
+    font-size:12px;
+    position: absolute;
+    margin-top:20px;
+
+   
+    
 }
