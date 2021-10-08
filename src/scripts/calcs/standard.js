@@ -4,8 +4,8 @@ import React, {useState, useEffect} from "react"
 function Standard() {
 
         const [calculations, setCalculations] = useState([])
-        const [mathSymbol, setMathSymbol] = useState([])
-        const [history, setHistory] = useState({first: "", second: "", third: "", bool: true, isResult: false, result: ''})
+        const [story, setStory] = useState(false)
+        const [history, setHistory] = useState({first: "", second: "", third: "", bool: true, isResult: false, result: '', del: true})
         const [result, setResult] = useState("")
     // bool meaning the first number was added
         
@@ -19,15 +19,21 @@ function Standard() {
                 let grabDiv = document.querySelector(".n"+i)
                
     
-                grabDiv.addEventListener("click", (event) => {
-                    
-                    let grabInput = document.querySelector(".math")
+                grabDiv.addEventListener("click", (event) => {    
+                    let grabInput = document.querySelector('.math')           
                     grabInput.value = grabInput.value + event.target.innerHTML
 
 
                 } )
             }
-    
+
+            let grabStory = document.querySelector(".story")
+            grabStory.addEventListener('click', () => {
+
+                setStory(true)
+            })
+            
+            
 
         }, [])
 
@@ -106,6 +112,8 @@ function Standard() {
             if(history.bool) {
 
                 if(selectedOperation === "procent") {
+                    let grabInput = document.querySelector(".math")
+                    grabInput.select()
                     getValue = getValue / 100
 
                     setHistory(prevState => ({
@@ -118,6 +126,8 @@ function Standard() {
                 }
 
                 else {
+                    let grabInput = document.querySelector(".math")
+                    grabInput.select()
                     setHistory(prevState => ({
                         ...prevState,
                         bool: false,
@@ -132,6 +142,13 @@ function Standard() {
 
             // clicked everything else
             else if (!history.bool) {
+                let grabInput = document.querySelector(".math")
+                let historyObject = {
+                    first: '',
+                    operator: '',
+                    second: '',
+                    result: ''
+                }
 
                 if(selectedOperation === "procent") {
                     getValue = getValue / 100
@@ -198,17 +215,24 @@ function Standard() {
                 let grabInputField = document.querySelector(".math")
                
                 grabInputField.value = res
+                grabInputField.select()
 
 
+                historyObject = {
+                    first: history.first,
+                    operator: selectedOperation,
+                    second: getValue,
+                    result: res
+                }
 
-               
+               setCalculations( prevArray => [...prevArray, historyObject])
 
             }
                
            
             
             console.log(history.first)
-
+            
             
             
             
@@ -216,13 +240,27 @@ function Standard() {
 
             
         }
-      
-       
-        console.log(result)
-        console.log(history)
+        
+        let historyOf = ''
+        let mappedLi = calculations.map(item => <li>{item.first} {item.operator} {item.second} = {item.result} </li>)
+        if(story) {
+            historyOf = <main><button onClick={() => setStory(false)}>x</button>  <ul> {mappedLi} </ul> </main>
+        }
+        else if (story === false) {
+            console.log('working')
+            historyOf = ''
+
+        }
+        
+        console.log(story)
+        console.log(calculations)
+        
 
     return (
         <div className="mathe">Obliczenia
+
+            {historyOf}
+
             <h3 className="history">{history.first } {history.second} {history.third} {history.result ? "=" : ''} <b>{history.result}</b> </h3>
             
             <input type="number"  className="math" autoFocus />
@@ -238,8 +276,10 @@ function Standard() {
                 <div className="n4">4</div> <div className="minus" onClick={MathSym}>- </div>
                 <div className="n3">3</div> <div className="n2">2</div>
                 <div className="n1">1</div> <div className="add" onClick={MathSym}>+ </div>
-                <div className="nothing"></div> <div className="n0">0</div>
-                 <div className="dot">,</div> <div className="equal" onClick={MathSym}>= </div>
+                <div className="story">History</div> <div className="n0">0</div>
+                 <div className="dot">.</div> <div className="equal" onClick={MathSym}>= </div>
+
+                 
 
             </div>
         

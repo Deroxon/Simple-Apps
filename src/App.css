@@ -171,7 +171,35 @@ body {
     font-size:12px;
     position: absolute;
     margin-top:20px;
-
-   
-    
+}
+main {
+    position: absolute;
+    width:100%;
+    left:0%;
+    min-height: 300px;
+    background-color: rgba(82, 79, 79, 0.8);
+    color:white;
+    text-shadow:1px 1px 1px black;
+    justify-content: center;
+    display:flex;
+    align-items: center;
+    z-index: 1001;
+}
+main button {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 10px;
+    font-size: 30px;
+    width:32px;
+    height:35px;
+    border-radius:5px;
+    border:none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+}
+main ul {
+    list-style-type: none;
+    font-size:16px;
 }
