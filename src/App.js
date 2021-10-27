@@ -5,6 +5,7 @@ import SmallApp from "./scripts/smallApp"
 import Chuck from "./scripts/chuckNor"
 import Stoper from "./scripts/stoper"
 import Calc from "./scripts/calc"
+import ColorPallete from "./scripts/colorPalletes"
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
 
     // add opacity lower to other components
 
+    // eslint-disable-next-line default-case
     switch (id) {
       case 1: 
       name="RandomColor"
@@ -38,7 +40,7 @@ function App() {
 
     }
 
-    generate( () => <Calc />)
+    generate( () => <ColorPallete />)
 
   }
 

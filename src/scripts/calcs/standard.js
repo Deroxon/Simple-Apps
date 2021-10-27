@@ -6,11 +6,10 @@ function Standard() {
         const [calculations, setCalculations] = useState([])
         const [story, setStory] = useState(false)
         const [history, setHistory] = useState({first: "", second: "", third: "", bool: true, isResult: false, result: '', del: true})
-        const [result, setResult] = useState("")
+       
     // bool meaning the first number was added
         
 
-        let x =document.getElementsByClassName("doMath")
 
         // from 0 to 9 function
         useEffect( () => {
@@ -41,6 +40,8 @@ function Standard() {
 
         
         function Clear(e) {
+            
+            
 
             let selectedOperation = e.target.className
 
@@ -72,12 +73,17 @@ function Standard() {
           
 
         function MathSym(e) {
+
+            
            
             let getValue = document.querySelector(".math").value
-            let getHistory = document.querySelector(".history").value
+            
+
+            
           
             let selectedOperation = e.target.className
-        
+            
+            // eslint-disable-next-line default-case
             switch (selectedOperation) {
                 case 'divide':
                     selectedOperation = '/'
@@ -96,9 +102,7 @@ function Standard() {
                 selectedOperation = "-"
                 break
 
-                case "equal":
-                    selectedOperation = '='
-                break;
+               
             }
 
             
@@ -111,21 +115,7 @@ function Standard() {
             // clicked if hisotry.first is empty
             if(history.bool) {
 
-                if(selectedOperation === "procent") {
-                    let grabInput = document.querySelector(".math")
-                    grabInput.select()
-                    getValue = getValue / 100
-
-                    setHistory(prevState => ({
-                        ...prevState,
-                        bool: false,
-                        first: getValue,
-                        
-                    }))
-
-                }
-
-                else {
+                
                     let grabInput = document.querySelector(".math")
                     grabInput.select()
                     setHistory(prevState => ({
@@ -134,7 +124,7 @@ function Standard() {
                         first: getValue,
                        
                     }))
-                }
+                
 
 
                
@@ -142,7 +132,7 @@ function Standard() {
 
             // clicked everything else
             else if (!history.bool) {
-                let grabInput = document.querySelector(".math")
+              
                 let historyObject = {
                     first: '',
                     operator: '',
@@ -150,9 +140,7 @@ function Standard() {
                     result: ''
                 }
 
-                if(selectedOperation === "procent") {
-                    getValue = getValue / 100
-                }
+               
 
                 if(history.isResult) {
                     console.log(typeof(history.result))
@@ -177,8 +165,10 @@ function Standard() {
                 let res = ''
 
                
-
-                switch (selectedOperation) {
+           
+                         // eslint-disable-next-line default-case
+                    switch (selectedOperation) {
+                    
                     case "+":
                     res = history.first + getValue
                     break;
@@ -193,11 +183,10 @@ function Standard() {
 
                     case "/":
                         res = history.first / getValue
-                    break;
-
-                    
-                    
+                    break;    
                 }
+
+               
 
                 res = Number(res)
                 res = res.toFixed(6)
@@ -233,7 +222,7 @@ function Standard() {
             
             console.log(history.first)
             
-            
+            console.log(history)
             
             
 
@@ -254,6 +243,8 @@ function Standard() {
         
         console.log(story)
         console.log(calculations)
+
+        
         
 
     return (
@@ -264,7 +255,7 @@ function Standard() {
             <h3 className="history">{history.first } {history.second} {history.third} {history.result ? "=" : ''} <b>{history.result}</b> </h3>
             
             <input type="number"  className="math" autoFocus />
-                <div className="procent" onClick={MathSym}>%</div>
+                <div className="procent"></div>
                 <div className="clear" onClick={Clear}>Clear </div>
                 <div className="del" onClick={Clear}>Delete1 </div>
                 <div className="divide" onClick={MathSym}>\ </div>
@@ -277,7 +268,7 @@ function Standard() {
                 <div className="n3">3</div> <div className="n2">2</div>
                 <div className="n1">1</div> <div className="add" onClick={MathSym}>+ </div>
                 <div className="story">History</div> <div className="n0">0</div>
-                 <div className="dot">.</div> <div className="equal" onClick={MathSym}>= </div>
+                 <div className="dot">.</div> <div className="equal"> </div>
 
                  
 
