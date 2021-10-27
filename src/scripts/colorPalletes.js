@@ -1,7 +1,6 @@
 import React from "react"
 import randomcolor from "randomcolor"
-import {useState, useEffect} from "react"
-import $ from "jquery"
+
 
 
 function ColorPallete() {
