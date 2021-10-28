@@ -10,7 +10,7 @@ function Currency() {
     
     console.log(currencyTable)
 
-
+    
        
 
         function Generate() {
@@ -32,7 +32,7 @@ function Currency() {
                     console.log(firstElementObject)
 
                     setVal(`${numberOfAmount} ${firstVal} = ${firstElementObject} ${secondVal}`)
-                    alert(`${numberOfAmount} ${firstVal} = ${firstElementObject} ${secondVal}`);
+                    
                 })
                 .catch((error) => {
                     console.log(error)
@@ -66,7 +66,7 @@ function Currency() {
 
             <div className="selects"> 
 
-                <input type="number" onChange={e => setAmount(e.target.value)} placeholder="Enter number or default value is 1" />
+                <input type="number" autoFocus className="amount" onChange={e => setAmount(e.target.value)} placeholder="Enter number or default value is 1" />
 
                 <select onChange={e => setFirstVal(e.target.value)}>
                     {mappedListofCurrency}
