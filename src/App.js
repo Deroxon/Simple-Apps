@@ -14,7 +14,6 @@ function App() {
 
   let chooseWeb = (id) => {
     
-    let name = ''
     let grabSelectedClass = document.querySelector("#k"+id)
     grabSelectedClass.style.opacity = "1"
 
@@ -23,24 +22,24 @@ function App() {
     // eslint-disable-next-line default-case
     switch (id) {
       case 1: 
-      name="RandomColor"
+      generate( () => <ColorPallete />)
       break
 
       case 2: 
-      name="Calc"
+      generate( () => <Calc />)
       break
 
       case 3: 
-      name="Stoper"
+      generate( () => <Stoper />)
       break
 
       case 4: 
-      name="Chuck"
+      generate( () => <Chuck />)
       break
 
     }
 
-    generate( () => <ColorPallete />)
+    
 
   }
 

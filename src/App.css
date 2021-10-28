@@ -225,6 +225,7 @@ main ul {
     list-style-type: none;
     Text-align:center;
     color:white;
+    background-color: whitesmoke;
     text-shadow:0.5px 0.5px 0.5px black;
 }
 .btn-generate {
@@ -246,3 +247,42 @@ main ul {
     z-index: 1001;
     visibility: hidden;
 }
+
+
+/* currency calc */
+
+.currContainer{
+    width:100%;
+    height:399px;
+
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.selects {
+    width:100%;
+
+    Text-align:center
+}
+.selects input {
+    height:60px;
+    width:100%;
+    font-size:35px;
+    text-align:center
+}
+.selects select {
+    width:120px;
+    height:100%;
+    font-size:25px;
+    padding:0;
+    margin: 0;
+}
+.selects button {
+    width:120px;
+    height:100%;
+    font-size:25px
+}
+.currContainer h3 {
+    text-align: center;
+}
+
