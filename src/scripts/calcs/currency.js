@@ -4,8 +4,6 @@ import currencyTable from "../../fakeData/currency"
 function Currency() {
 
     const [val, setVal] = useState({frVal: '', secVal: ''})
-    const [hideFr, setFr] = useState('')
-    const [hideSc, setSc] = useState('')
     const [firstVal, setFirstVal] = useState('EUR')
     const [secondVal, setSecondVal] = useState('EUR')
     const [numberOfAmount, setAmount] = useState(0)
@@ -52,19 +50,7 @@ function Currency() {
                 alert("You cannot convert same values")
             }
 
-            for(let i= 0; i < currencyTable.length; i++) {
-                for(let key in currencyTable[i]) {
-                    if(currencyTable[i][key].indexOf(firstVal) !=-1) {
-                        setFr(currencyTable[i].currency)
-                    }
-
-                    if(currencyTable[i][key].indexOf(secondVal) !=-1) {
-                        setSc(currencyTable[i].currency)
-                    }
-                    
-                    
-                }
-            }
+          
             
             
             
