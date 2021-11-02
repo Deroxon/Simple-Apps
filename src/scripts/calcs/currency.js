@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useState  } from "react"
 import currencyTable from "../../fakeData/currency"
 
 function Currency() {
 
-    const [val, setVal] = useState("")
+    const [val, setVal] = useState({frVal: '', secVal: ''})
+    const [hideFr, setFr] = useState('')
+    const [hideSc, setSc] = useState('')
     const [firstVal, setFirstVal] = useState('EUR')
     const [secondVal, setSecondVal] = useState('EUR')
     const [numberOfAmount, setAmount] = useState(0)
@@ -32,6 +34,11 @@ function Currency() {
                     console.log(firstElementObject)
 
                     setVal(`${numberOfAmount} ${firstVal} = ${firstElementObject} ${secondVal}`)
+
+                    setVal({...val,
+                        frVal:  `${numberOfAmount} ${firstVal} = `,
+                        secVal: `${firstElementObject} ${secondVal}`
+                    })
                     
                 })
                 .catch((error) => {
@@ -45,7 +52,19 @@ function Currency() {
                 alert("You cannot convert same values")
             }
 
-            
+            for(let i= 0; i < currencyTable.length; i++) {
+                for(let key in currencyTable[i]) {
+                    if(currencyTable[i][key].indexOf(firstVal) !=-1) {
+                        setFr(currencyTable[i].currency)
+                    }
+
+                    if(currencyTable[i][key].indexOf(secondVal) !=-1) {
+                        setSc(currencyTable[i].currency)
+                    }
+                    
+                    
+                }
+            }
             
             
             
@@ -55,13 +74,12 @@ function Currency() {
 
 
         let mappedListofCurrency = currencyTable.map( (item,index) => <option key={index} value={item.shortCut}> {item.shortCut} </option>)
-
-
-    console.log(numberOfAmount)
+        
+        
     return (
         <div className="currContainer">
 
-            <h3> {val} </h3>
+            <div className="resulter">  {val.frVal}   {val.secVal} </div>
 
 
             <div className="selects"> 

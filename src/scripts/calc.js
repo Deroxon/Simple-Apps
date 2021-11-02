@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react"
 import Standard from "./calcs/standard"
-import Measures from "./calcs/measures"
 import Currency from "./calcs/currency"
 
 function Calc() {
@@ -19,9 +18,7 @@ function Calc() {
             case "currency": 
             chooseCalc(<Currency />)
             break;
-            case "measures": 
-            chooseCalc(<Measures />)
-            break;
+
         }
         
     }
@@ -32,7 +29,6 @@ function Calc() {
                 <option></option>
                 <option value="normal">Normal</option>
                 <option value="currency">Currency</option>
-                <option value="measures">Measures</option>
             </select>
                 
 

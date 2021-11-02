@@ -285,4 +285,43 @@ main ul {
 .currContainer h3 {
     text-align: center;
 }
+.frVal {
+    
+    width: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -120px;
+}
+.frVal:hover {
+    visibility: visible;
+}
 
+.secVal {
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    
+}
+.frVal:hover {
+    visibility: visible;
+}
+.resulter {
+    position: relative;
+    text-align:center;
+    font-size:25px;
+    min-width:300px;
+}
